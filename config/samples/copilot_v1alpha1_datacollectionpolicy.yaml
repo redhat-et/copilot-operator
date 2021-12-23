@@ -1,0 +1,6 @@
+apiVersion: copilot.redhataicoe.com/v1alpha1
+kind: DataCollectionPolicy
+metadata:
+  name: sample
+spec:
+  enabled: true

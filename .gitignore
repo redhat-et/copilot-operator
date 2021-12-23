@@ -4,6 +4,8 @@
 *.dll
 *.so
 *.dylib
+/bin/
+/testbin/
 
 # Test binary, built with `go test -c`
 *.test
@@ -11,5 +13,14 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# Ignore vendor dependencies
+/vendor/
+
+# Un-ignore Kubernetes Generated files in vendor dir
+!/vendor/**/zz_generated.*
+
+# editor and IDE paraphernalia
+.idea
+*.swp
+*.swo
+*~

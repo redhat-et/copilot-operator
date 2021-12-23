@@ -1,0 +1,25 @@
+name: run_tests
+on: [push, pull_request]  
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.17.5' # The Go version to download (if necessary) and use.
+      - name: Setup Minikube
+        uses: manusa/actions-setup-minikube@v2.4.3
+        with:
+          minikube version: 'v1.24.0'
+          kubernetes version: 'v1.23.0'
+      - run: go version
+      - run: minikube version
+      - run: minikube start
+      - run: make docker-build
+      - run: make deploy
+      - run: bash ./hack/dev-sanity.sh
+      - run: make bundle
+      - run: make bundle-build

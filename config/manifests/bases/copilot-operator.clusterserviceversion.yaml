@@ -1,0 +1,54 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: copilot-operator.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: DataCollectionPolicy is the Schema for the datacollectionpolicies
+        API
+      displayName: Data Collection Policy
+      kind: DataCollectionPolicy
+      name: datacollectionpolicies.copilot.redhataicoe.com
+      version: v1alpha1
+  description: Cluster Operator for YAML Completion AI Services
+  displayName: copilot-operator
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - ai
+  - completion
+  - yaml
+  - copilot
+  links:
+  - name: Copilot Operator
+    url: https://copilot-operator.domain
+  maintainers:
+  - email: gmargali@redhat.com
+    name: Guy Margalit
+  - email: osilkin@redhat.com
+    name: Oleg Silkin
+  maturity: alpha
+  provider:
+    name: redhat-et
+    url: https://github.com/redhat-et
+  version: 0.0.0
